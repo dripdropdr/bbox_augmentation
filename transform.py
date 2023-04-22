@@ -41,8 +41,6 @@ class BoundingBoxAug(object):
         label_tensor = label_tensor.to('cpu')
         label_tensor_unique = torch.unique(label_tensor)
 
-        # app_cls = [22, 26, 34, 38, 46, 47, 49, 51, 57, 28, 32]
-        # check_list = [idx.item() for idx in label_tensor_unique if idx.item() in app_cls] #pz
         if random.random() > self.thr: #and len(check_list) > 1:
             img = self.hflip(img, target)
             img = self.vflip(img, target)
